@@ -22,5 +22,6 @@ api_urlpatterns = [
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('api/v1/', include(api_urlpatterns)),
+    path('api/v1/', include(api_urlpatterns)),
+    path('', include('user_preferences.urls'))
 ]
