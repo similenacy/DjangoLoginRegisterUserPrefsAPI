@@ -107,4 +107,5 @@ def perform_login(request: Request, user: 'AbstractBaseUser') -> Dict[str, Any]:
         token = auth_token_manager.provide_token(user)
         extra_data['token'] = token
 
+
     return extra_data

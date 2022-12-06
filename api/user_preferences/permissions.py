@@ -9,7 +9,17 @@ class OnlyOwnerCanView(permissions.BasePermission):
         return super().has_permission(request, view)
 
     def has_object_permission(self, request, view, obj):
-        return obj.user == request.user
+        return bool(obj.user == request.user)
+
+
+class OnlyOwnerAndAdminCanView(permissions.BasePermission):
+
+    def has_permission(self, request, view):
+            return super().has_permission(request, view)
+
+    def has_object_permission(self, request, view, obj):
+            return bool((obj.user == request.user) or (request.user.is_staff))
+
 
 
 

@@ -136,7 +136,7 @@ class DefaultRegisterUserSerializer(
         if self.has_password_confirm_field():
             del data['password_confirm']
         
-        
+        #  creates new user prefs and saves them before saving the actual user
         newUser = self.Meta.model.objects.create_user(**data)
         newUserPref = User_Preference(user=newUser)
         newUserPref.save()
